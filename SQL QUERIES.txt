@@ -1,0 +1,15 @@
+SQL QUERIES
+
+1. PATIENT TABLE:
+create table Patient(patientId int primary key, firstName varchar(100),lastName varchar(100),
+dateOfBirth date, gender varchar(20),contactNumber varchar(20),address varchar(300));
+
+2. DOCTOR TABLE:
+create table Doctor(doctorId int primary key, firstName varchar(100),lastName varchar(100),
+specialization varchar(100),contactNumber varchar(20));
+
+3. APPOINTMENT TABLE:
+create table Appointment(appointmentId int primary key, patientId int, doctorId int, 
+appointmentDate date, description varchar(500),constraint patientIdfk foreign key(patientId) 
+references Patient(patientId) on delete set null, constraint doctorIdfk foreign key(doctorId) 
+references Doctor(doctorId) on delete set null);
